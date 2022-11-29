@@ -10,6 +10,9 @@ const imgInfo = document.querySelector(".imgInfo-cls");
 const submit = document.querySelector(".form-submit");
 const cardsDiv = document.querySelector(".cards-div-cls");
 const modalDiv = document.querySelector(".modal-cls");
+const pUserName = document.querySelector(".uname-cls");
+const pEmail = document.querySelector(".email-cls");
+
 
 let imgData;
 let subscriber;
@@ -25,6 +28,8 @@ window.onload = function () {
     console.log(subscriber.getInfo());
 }
 avatar.onclick = function () {
+    pUserName.innerHTML = `Username: ${subscriber.getInfo().userName}`;
+    pEmail.innerHTML = `Email: ${subscriber.getInfo().email}`;
     if (modalDiv.style.display === "none") {
         modalDiv.style.display = "block";
     }
