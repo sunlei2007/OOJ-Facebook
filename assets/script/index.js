@@ -23,7 +23,7 @@ window.onload = function () {
     subscriber.id = "id2321";
     subscriber.name = "Jones";
     subscriber.userName = "Henry Jones";
-    subscriber.email = "HenryJones@gmail.com";
+    subscriber.email = "Henry@gmail.com";
 
     console.log(subscriber.getInfo());
 }
