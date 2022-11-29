@@ -4,7 +4,7 @@ import { Subscriber } from "./Subscriber.js?v=1.1"
 
 const avatar = document.querySelector(".ava-cls");
 const inputSelimg = document.querySelector(".selpic-cls");
-const textContent = document.querySelector(".form-content");  
+const textContent = document.querySelector(".form-content");
 const imgSel = document.querySelector(".color-css");
 const imgInfo = document.querySelector(".imgInfo-cls");
 const submit = document.querySelector(".form-submit");
@@ -35,13 +35,17 @@ avatar.onclick = function () {
 imgSel.onclick = function () {
     inputSelimg.click();
 }
-inputSelimg.onchange = function () {  
+inputSelimg.onchange = function () {
     const file = this.files[0];
     imgInfo.innerHTML = file.name.trim();
     imgData = getObjectURL(file);
-      
+
 }
 submit.onclick = function () {
+    if (textContent.value.trim() === "") {
+        alert("Please enter new content!");
+        return false;
+    }
     const div = createMsgCard();
     cardsDiv.appendChild(div);
     return false;
@@ -72,9 +76,9 @@ function createMsgCard() {
     divTitle.appendChild(pTime);
 
     divContainer.appendChild(divTitle);//Add to divContainer
-   
+
     //Create content
-    const pContent = document.createElement("p"); 
+    const pContent = document.createElement("p");
     pContent.innerHTML = textContent.value;
     pContent.classList.add("card-content-cls");
 
@@ -88,13 +92,13 @@ function createMsgCard() {
         divContainer.appendChild(imgContent);//Add to divContainer
     }
     return divContainer;
-    
+
 }
 
 function getObjectURL(file) {
 
     var url = null;
- 
+
 
     if (window.createObjectURL != undefined) { // basic
 
